@@ -1,0 +1,4 @@
+<select class="form-control"   ng-model="vm.formData.state"  name="state" ng-blur="state = commonService.checkElementLength(vm.formData,'state');" required ng-class="{myBlur:state}" ng-change="changeStates(vm.formData.state);" > 
+	<option value="" >Choose a State</option>
+	<option ng-repeat="option in states" value="{{option.id}}" >{{option.state}}</option>
+</select>
