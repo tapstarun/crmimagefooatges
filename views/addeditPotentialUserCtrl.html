@@ -1,0 +1,130 @@
+<div class="container-fluid" ng-controller="addeditPotentialUserCtrl as vm">
+	<div class="row mtxl">
+      <div class="col-md-12 col-sm-12">
+		 <div class="row">
+		 	
+			<div class="col-lg-12">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<strong>Add/Edit Potential User</strong>
+					</div>
+					<div class="panel-body">
+						<form role="form" name="potentialMember" method="post" ng-submit="addUpdatepotentialMember()">
+							<div ng-if="potentialMember.$error.usernameExists" align="center" class="alert alert-danger">Already exist</div>	
+							<input   name="id" ng-model="vm.formData.id" type="hidden"  >
+							<div class="row">
+									<div class="col-lg-4 col-md-4 col-xs-4">
+										<div class="form-group">
+												<label>First Name</label>
+												<input class="form-control" placeholder="Please Enter First Name" name="firstname" ng-model="vm.formData.firstname" type="text"  ng-blur="firstName = commonService.checkElementLength(vm.formData,'firstname');" required ng-class="{myBlur:firstName}">
+										</div>	
+										<div class="form-group">
+												<label>Address</label>
+												<input class="form-control"  placeholder="Please Enter address" name="address" ng-model="vm.formData.address" type="text" ng-blur="address = commonService.checkElementLength(vm.formData,'address');" required ng-class="{myBlur:address}" >
+										</div>	
+										<div class="form-group">
+												<label>Job Title</label>
+												<input class="form-control"  placeholder="Please Enter Job Title" name="job_title" >
+										</div>			
+										<div class="form-group">
+												<label>Phone</label>
+												<input class="form-control"  placeholder="Please Enter Phone Number " name="phone" ng-model="vm.formData.phone" type="text" >
+										</div>			
+
+										<div class="form-group">
+												<label>Zipcode</label>
+												<input class="form-control"  placeholder="Please Enter Zipcode " name="zipcode" ng-model="vm.formData.zipcode" type="text" >
+										</div>
+
+									</div>
+									<!-- /.col-lg-6 (nested) -->
+									<div class="col-lg-4 col-md-4 col-xs-4">
+										<div class="form-group">
+											<label>Last Name</label>
+											<input class="form-control" placeholder="Please Enter Last Name" name="lastname" ng-model="vm.formData.lastname"
+											type="text"  ng-blur="lastname = commonService.checkElementLength(vm.formData,'lastname');" required ng-class="{myBlur:lastname}"
+											>
+										</div>		
+										<div class="form-group">
+											<label>Business Type</label>
+											<input class="form-control" placeholder="Please Enter Business type" name="business_type" ng-model="vm.formData.business_type"
+											type="text" >
+										</div>				
+										<div class="form-group">
+											<label>Company</label>
+											<input class="form-control" placeholder="Please Enter Company Name" name="company" ng-model="vm.formData.company"
+											type="text" >
+										</div>										
+										<div class="form-group">
+												<label>Mobile</label>
+												<input class="form-control"  placeholder="Please Enter mobile Number " name="Mobile" ng-model="vm.formData.mobile" type="text" >
+										</div>
+
+									</div>
+									<!-- /.col-lg-6 (nested) -->
+									<!-- /.col-lg-6 (nested) -->
+									<div class="col-lg-4 col-md-4 col-xs-4">
+										<div class="form-group">
+											<label>Email ID</label>
+											<input class="form-control" placeholder="Please Enter Email ID" name="email" ng-model="vm.formData.email"
+											type="email"  ng-blur="email = commonService.checkElementLength(vm.formData,'email');" required ng-class="{myBlur:email}"
+											username-email-available>
+										</div>	
+										<div id="CountandStates">
+										<country-with-states-with-cites></country-with-states-with-cites>
+										<div>
+									</div>
+									<!-- /.col-lg-6 (nested) -->								
+							</div>
+							<!-- /.row (nested) -->
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-xs-12" align="center">
+									<button type="submit" class="btn btn-primary" ng-disabled="potentialMember.$invalid">{{buttonText}}</button>
+									<button type="button" class="btn btn-danger" ng-click="resetFormToAddUser()">Reset</button>
+								</div>
+							</div>
+						</form>
+						<!--form ended-->
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+      </div>
+	</div>
+
+	<image src="images/loading_spinner.gif" class="col-md-offset-5 loading" ng-if="dataLoading">	 
+	<div class="row mtxl" >			
+		<modal-dialog show='modalShown' width="226px" height="124px">		  
+		  	<div class="row mtxl" >
+			  	<div class="col-md-12 col-sm-12" align="center">
+			  		Are you sure want to delete this User?
+			  	</div>
+		  	</div>
+		  	<div class="row mtxl" >
+			  	<div class="col-md-12 col-sm-12" align="center">		  		
+			  		<button type="button" class="btn btn-primary" ng-click="deleteUser()">Delete</button>
+					<button type="button" class="btn btn-danger" ng-click="toggleModal()">Cancel</button>
+			 	</div>
+		 	</div>
+		</modal-dialog>
+	</div>
+	<!--Modal HTML specific to Page-->
+	<image src="images/loading_spinner.gif" class="col-md-offset-5 loading" ng-if="dataLoading">	
+<div id='operationMessage' ng-if="!dataLoading">{{message}}</div>	
+	<div class="row mtxl" ng-if="gridOptions.data!=null && gridOptions.data.length>0">
+      	<div class="col-md-12 col-sm-12" align="right">
+    		<button id='toggleFiltering' ng-click="commonService.toggleFiltering(scope)" class="btn btn-success">Filter</button>
+    	</div>	
+	</div>		
+	<div class="row mtxl" ng-if="gridOptions.data!=null && gridOptions.data.length>0">
+      <div class="col-md-12 col-sm-12">
+      	<div ui-grid-grouping ui-grid="gridOptions" class="panel panel-primary grid"></div>
+	  </div>	
+	</div>
+	<div class="row alert alert-info" ng-if="gridOptions && gridOptions.data.length==0" align="center">
+	    No Data Found.
+	</div>
+</div>

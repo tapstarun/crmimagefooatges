@@ -1,0 +1,14 @@
+<div class="form-group">
+	<label>State</label>
+	<select class="form-control"   ng-model="vm.formData.state"  name="state" ng-blur="state = commonService.checkElementLength(vm.formData,'state');" required ng-class="{myBlur:state}" ng-change="changeCities(vm.formData.state);" > 
+	<option value="" >Choose a State</option>
+	<option ng-repeat="option in states" value="{{option.state}}" >{{option.state}}</option>
+	</select>
+</div>
+<div class="form-group">
+	<label>City</label>
+		<select class="form-control" name="city" ng-model="vm.formData.city">
+			<option value="">Select Cities</option>
+			<option ng-repeat="option in cities" value="{{option.name}}" name="city" ng-model="vm.formData.city">{{option.name}}</option>
+		</select>
+</div>

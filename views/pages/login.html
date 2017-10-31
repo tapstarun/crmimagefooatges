@@ -1,0 +1,22 @@
+<div class="form" ng-controller="LoginCtrl as vm">
+   <div id="signup">
+      <h1 class="login-h1">Welcome Back!</h1>
+      <form name="loginForm" method="post" ng-submit="vm.login()" role="form">
+         <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+         <div class="field-wrap">
+            <input type="text" class="login-input" required autocomplete="off" name="username" ng-blur="blur=true" ng-model="vm.username" placeholder="E-mail or Username" required ng-class="{myBlur:blur}"/>
+            <p class="validat-text-clr" ng-show="loginForm.userEmail.$touched && loginForm.userEmail.$invalid">Please Enter  Your E-mail</p>
+         </div>
+         <div class="field-wrap">
+            <input type="password" class="login-input" required autocomplete="off" ng-blur="blur=true" name="password" ng-model="vm.password" placeholder="Password" required ng-class="{myBlur:blur}"/>
+            <p class="validat-text-clr" ng-show="loginForm.userPassword.$touched  && loginForm.userPassword.$invalid">Please Enter Your Password</p>
+         </div>
+		 <div align="center" ng-if="vm.dataLoading"><img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /></div>
+		 <span class="forgot"><a href ="#!sign-up">Sign up</a></span>
+		 <p class="forgot"><a href="#!forgotpassword">Forgot Password?</a></p>
+         <input type="submit" class="login-button btn" ng-disabled="loginForm.$invalid || vm.dataLoading" value="Log IN"/>
+	</form>
+   </div>
+</div>
+
+

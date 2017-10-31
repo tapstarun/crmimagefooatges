@@ -1,0 +1,280 @@
+.man{
+	margin:0px;
+}
+/*marign for top*/
+.mts{
+	margin-top:5px;
+}
+.mtm{
+	margin-top: 10px;
+}
+.mtl{
+	margin-top: 15px;
+ }
+.mtxl{
+	margin-top: 20px;
+}
+.mtxxl{
+	margin-top: 25px;
+}
+/*margin from left*/
+.mls{
+margin-left:5px;
+}
+.mlm{
+margin-left:10px;
+}
+.mll{
+margin-left:15px;
+}
+.mlxl{
+margin-left:20px;
+}
+.mlxxl{
+margin-left:25px;
+}
+/*padding for top */
+.pts{
+padding-top:5px;
+}
+.ptm{
+padding-top:10px;
+}
+.ptl{
+padding-top:15px;
+}
+.validat-text-clr{                   /*color of validation text message during validation*/
+	color:#FF0000;
+}
+.box-boder{                           /* border color of box during validation failure */
+ border: solid 1px #FF0000;
+}
+input[type="email"].myBlur {         /*make myBlur class for email field for achieve boder color of input field */
+  border: solid 1px #FF0000;  
+}  
+input[type="password"].myBlur {      /*make myBlur class for email field for achieve boder color of input field */
+  border: solid 1px #FF0000;  
+}  
+input[type="text"].myBlur {          /*make myBlur class for text field for achieve boder color of input field */
+  border: solid 1px #FF0000;  
+}
+.left-m-bar{                            /*background of dashboard left menu bar*/
+  background: #286090;
+}  
+.line-color {   /*color code of line color*/
+    border-top:1px solid #000000;
+    margin-top:5px;
+}
+.text-size{          /*text size of text of heading*/
+font-size:15px;
+font-weight:bold;  
+}
+.row-border{                       /*to and bottom border of div */
+  border-top:1px solid gray;
+  border-bottom:1px solid gray;
+  margin-top:5px;
+}
+.spcl-txt-color{                  /*for text color */
+  color:red;
+}
+
+.hdr-color{
+  background:#286090;
+}
+
+/*added for ui-grid directive*/
+.grid {
+  height: 250px;
+}
+
+input[type="text"].sucess {          /*make myBlur class for text field for achieve boder color of input field */
+  border: solid 1px green;  
+}
+
+.grid-bttn-align{
+  margin : 5px 0px 4px 4px;
+}
+
+.loading {
+    height:89px;
+    width:89px;
+    z-index: -1;
+}
+
+.ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:absolute;
+  z-index:9999;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:#000000;
+  opacity: 0.8;
+}
+.ng-modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+  z-index:10000;
+  position: absolute;
+  width: 50%; /* Default */
+
+  /* Center the dialog */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+
+  background-color: #fff;
+  box-shadow: 4px 4px 80px #000;
+}
+.ng-modal-dialog-content {
+  padding:10px;
+  text-align: left;
+}
+.ng-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  display: inline-block;
+  font-weight: bold;
+  font-family: 'arial', 'sans-serif';
+}
+
+input[type="file"]{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+} 
+
+.upload-field {
+    position: relative;
+    cursor: pointer;
+    width: 300px;
+    height: 30px;
+    line-height: 28px;
+    padding: 5px 10px;
+    border: 1px solid #203F53;
+    border-radius: 5px;
+}
+
+.icon-folder {
+    background-image: url("../images/icon-folder.png");
+    height: 30px;
+    width: 30px;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    float: right;
+}
+
+.upload-file-button {
+    height: 40px;
+    width: 120px;
+    text-align: center;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px #203F53;
+    background-color: #203F53;
+    color: white;
+    font-size: 15px;
+}
+
+
+#operationMessage {
+    -moz-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    color:green;
+    text-align: center;
+}
+
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+.sidebar-scrolling{
+  max-height:590px;
+  overflow-x:auto;
+}
+.tab-content {
+    width: 100% !important;
+}
+.row>.col-md-3>.form-group>label {
+    float: right;
+}
+.floatRight{
+float: right;
+}
+.mg-lft-n8pc{
+    margin-left: -8%;
+}
+.mg-lft-n4pc{
+    margin-left: -4%;
+}
+.mg-lft-n3pc{
+margin-left: -3%;
+}
+.width88{
+width: 88%;}
+.width94pc{
+width:94%;
+}
+.sub-form{
+border-bottom: 1px solid #ddd !important;}
+
+.clientInfo-btn-ctr{
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+.clientInfo-sub-ctr{
+    border-bottom: 1px solid;
+    margin-left: 0px;
+    margin-right: 0px;
+    background: #f8f8f8;
+    margin-top: 1px;
+}
+.txt-udl{
+text-decoration: underline;
+}
+.float-rgt{
+float: right;}
+.invoice-to{
+font-size: 18px;
+    margin-top: 5px;
+	margin-left: -6%;
+}
+.yr-dpdwn{
+width: 60%;
+    margin-left: -11%}
+.mnth-cntr{
+margin-left: -1.3%;}
+.invoiceLink{
+margin-left: 8%;
+    margin-top: 2%;
+}

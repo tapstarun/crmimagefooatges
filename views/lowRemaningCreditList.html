@@ -1,0 +1,74 @@
+<div class="container-fluid" ng-controller="LowRemaningCreditListCtrl as vm">
+	<div class="row mtxl">
+      <div class="col-md-12 col-sm-12">
+		 <div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<strong>Low Remaining Credit List</strong>
+					</div>
+					<div class="panel-body">
+						<form role="form" method="post" ng-submit="transactionSearch()">
+							<div class="row">
+									<div class="col-lg-4 col-md-4 col-xs-4">
+										<div class="form-group">
+											<label>Date From</label>
+											<input type="text" class="form-control" date-time ng-model="vm.formData.fromDate" min-view="date" view="date" format="YYYY-MM-DD" auto-close="true" watch-direct-changes="true">
+										</div>
+									</div>									
+									<!-- /.col-lg-6 (nested) -->
+									<div class="col-lg-4 col-md-4 col-xs-4">
+										<div class="form-group">
+											<label>Date To</label>
+											<input type="text" class="form-control" date-time ng-model="vm.formData.toDate" min-view="date" view="date" format="YYYY-MM-DD" auto-close="true" watch-direct-changes="true">
+										</div>
+									</div>	
+									<div class="col-lg-4 col-md-4 col-xs-4">
+										<div class="form-group">
+											<label>Country</label>
+											<countries></countries>
+										</div>
+									</div>					
+							</div>
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-xs-12">
+									<div class="form-group">
+										<label>Min Credit Threshold : </label>
+										<input class="form-control" placeholder="Please Enter minimum Threshold" name="phone" ng-model="vm.formData.paymentMethod">
+										<div class="alert alert-info">
+											<strong>
+												This gives you the option of setting minimum credit threshold.
+												Eg : If you fill in 10 then it will return clients with 10 credits and above.
+											</strong>
+										</div>
+									</div>
+								</div>								
+							</div>										
+							<!-- /.row (nested) -->
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-xs-12" align="center">
+									<button type="submit" class="btn btn-danger">Search</button>
+									<button type="reset" class="btn btn-danger">Reset</button>
+								</div>
+							</div>
+						</form>
+						<!--form ended-->
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+      </div>
+	</div>
+	<image src="images/loading_spinner.gif" class="col-md-offset-5 loading" ng-if="dataLoading">	 
+	<div class="row mtxl" ng-if="gridOptions.data!=null && gridOptions.data.length>0">
+      <div class="col-md-12 col-sm-12">
+      	<div ui-grid-grouping ui-grid="gridOptions" class="grid panel panel-default"></div>
+	  </div>	
+	</div>
+	<div class="row alert alert-info" ng-if="gridOptions && gridOptions.data.length==0" align="center">
+	    No Data Found.
+	</div>
+</div>

@@ -1,0 +1,74 @@
+<div class="container-fluid" ng-controller="SearchClientInformationCtrl as vm">
+	<div class="row mtxl">
+      <div class="col-md-12 col-sm-12">
+		 <div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<strong>Search Client Information</strong>
+					</div>
+					<div class="panel-body">
+						<form role="form" method="post" ng-submit="advanceUserSearch()">
+							<div class="form-group">
+								<div class="row">
+										<div class="col-lg-2 col-md-2 col-xs-2">
+											<label>Company</label>
+										</div>
+										<div class="col-lg-5 col-md-5 col-xs-5">
+											<input  class="form-control" ng-model="vm.formData.company" >
+					
+										</div>
+										<!-- /.col-lg-12 (nested) -->								
+								</div>
+							</div>			
+							<div class="form-group">
+								<div class="row">
+										<div class="col-lg-2 col-md-2 col-xs-2">
+											<label>Industry</label>
+										</div>
+										<div class="col-lg-5 col-md-5 col-xs-5">
+											<input  class="form-control" ng-model="vm.formData.business_type" >
+					
+										</div>
+										<!-- /.col-lg-12 (nested) -->								
+								</div>
+							</div>
+							<div class="form-group">	
+								<div class="row">
+										<div class="col-lg-2 col-md-2 col-xs-2">
+											<label>Position</label>
+										</div>
+										<div class="col-lg-5 col-md-5 col-xs-5">
+								<input  class="form-control" ng-model="vm.formData.job_title" >
+										</div>
+										<!-- /.col-lg-12 (nested) -->								
+								</div>
+							</div>
+							<!-- /.row (nested) -->
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-xs-12" align="center">
+									<button type="submit" class="btn btn-danger">Search</button>
+									<button type="reset" class="btn btn-danger">Reset</button>
+								</div>
+							</div>
+						</form>
+						<!--form ended-->
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+      </div>
+	</div>
+	<div class="row mtxl" ng-if="gridOptions.data!=null">
+	   <!-- <ui-custom-grid ng-if="gridOptions.data.length>0" options="gridOptions"></ui-custom-grid>-->
+		<div class="col-md-12 col-sm-12">
+			<div ui-grid-grouping ui-grid="gridOptions" class="grid panel panel-default"></div>
+		</div> 
+	</div>
+	<div class="row alert alert-info" ng-if="gridOptions && gridOptions.data.length==0" align="center">
+	      No Data Found.
+	</div>
+</div>

@@ -1,0 +1,29 @@
+<div class="form">
+     <div id="signup">   
+          <h1>Sign Up for Free</h1>
+          <form action="/" method="post" name="signupForm">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 mtxxl">
+              <input type="text" required autocomplete="off" placeholder="First Name" ng-blur="blur=true" name="userFirstName" ng-model="user.firstName" ng-class="{myBlur:blur}" required/>
+               <p class="validat-text-clr" ng-show="signupForm.userFirstName.$touched && signupForm.userFirstName.$invalid">Please Enter  Your First Name</p>
+            </div>
+           <div class="col-lg-6 col-md-6 col-sm-12 mtxxl">
+              <input type="text"required autocomplete="off" placeholder="Last Name"  name="userLastName" ng-model="user.lastName" ng-class="{myBlur:blur}" ng-blur="blur=true" required/>
+               <p class="validat-text-clr" ng-show="signupForm.userLastName.$touched && signupForm.userFirstName.$invalid">Please Enter  Your Last Name</p>
+            </div>
+        </div>
+         <div class="field-wrap mtxl">
+            <input type="email"required autocomplete="off" placeholder="Email Address" name="userEmail"ng-model="user.email" ng-class="{myBlur:blur}" ng-blur="blur=true"  required/>
+            <p class="validat-text-clr" ng-show="signupForm.userEmail.$touched && signupForm.userEmail.$invalid">Please Enter  Your Email</p>
+          </div>
+          <div class="field-wrap">
+            <input type="password"required autocomplete="off" placeholder="Set A Password" ng-blur="blur=true" name="userPassword" ng-class="{myBlur:blur}"  ng-model="user.password"  required/>
+            <p class="validat-text-clr" ng-show="signupForm.userPassword.$touched && signupForm.userPassword.$invalid">Please Choos Your Password</p>
+          </div>
+          <input type="submit" class="button btn" ng-disabled="signupForm.$invalid" value="Get Started"/>
+          
+          
+        </form>
+
+        </div>
+</div>		

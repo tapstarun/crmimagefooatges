@@ -1,0 +1,124 @@
+<div class="container-fluid" ng-controller="editSiteUserCtrl as vm">
+	<div class="row mtxl">
+      <div class="col-md-12 col-sm-12">
+		 <div class="row">
+		 <div id='operationMessage' ng-if="!dataLoading">{{message}}</div>
+			<div class="col-lg-12">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<strong>Edit Site User</strong>
+					</div>
+				<form role="form" name="siteMember" method="post" ng-submit="UpdateSiteMember()">
+					<div class="panel-body">
+						
+							<div ng-if="siteMember.$error.usernameExists" align="center" class="alert alert-danger">Already exist</div>	
+							<div class="row">
+									<div class="col-lg-4 col-md-4 col-xs-4">
+										<div class="form-group">
+												<label>First Name</label>
+												<input class="form-control" placeholder="Please Enter First Name" name="firstname" ng-model="vm.formData.firstname" type="text"  ng-blur="firstName = commonService.checkElementLength(vm.formData,'firstname');" required ng-class="{myBlur:firstName}">
+										</div>
+										<div class="form-group">
+											<label>UserName</label>
+											<input class="form-control" placeholder="Please Enter UserName" name="username" ng-model="vm.formData.username" type="text"  ng-blur="username = commonService.checkElementLength(vm.formData,'username');" required ng-class="{myBlur:username}" readonly>
+										</div>	
+										<div class="form-group">
+											<label>Bussiness</label>
+											<input class="form-control" placeholder="Please Enter Bussiness Name" name="business_type" ng-model="vm.formData.business_type"
+											type="text" >
+										</div>	
+										<div class="form-group">
+												<label>Status</label>
+												<select class="form-control" ng-model="vm.formData.active" >
+													
+													<option value="1" ng-selected="vm.formData.active=='1'">Active</option>	
+													<option value="0" ng-selected="vm.formData.active=='0'">Inactive</option>	
+												</select>
+										</div>	
+
+										<div class="form-group">
+												<label><input type="checkbox" ng-model="vm.formData.newsletter" ng-checked="vm.formData.newsletter" ng-true-value="1" ng-false-value="0 "> Newsletter</label>
+											
+										</div>	
+									</div>
+									<!-- /.col-lg-6 (nested) -->
+									<div class="col-lg-4 col-md-4 col-xs-4">
+										<div class="form-group">
+											<label>Last Name</label>
+											<input class="form-control" placeholder="Please Enter Last Name" name="lastname" ng-model="vm.formData.lastname"
+											type="text"  ng-blur="lastname = commonService.checkElementLength(vm.formData,'lastname');" required ng-class="{myBlur:lastname}"
+											>
+										</div>		
+
+										<div class="form-group">
+											<label>Company</label>
+											<input class="form-control" placeholder="Please Enter Company Name " name="company" ng-model="vm.formData.company"
+											type="text"  >
+										</div>		
+										<div class="form-group">
+											<label>Address</label>
+											<input class="form-control" placeholder="Please Enter Address " name="address" ng-model="vm.formData.address"
+											type="text"  ng-blur="address = commonService.checkElementLength(vm.formData,'address');" required ng-class="{myBlur:address}">
+										</div>			
+										
+										<div class="form-group">
+											<label>Zip code</label>
+											<input class="form-control" placeholder="Please Enter Zip code " name="zipcode" ng-model="vm.formData.zipcode"
+											type="text"  >
+										</div>										
+
+
+									</div>
+									<!-- /.col-lg-6 (nested) -->
+									<!-- /.col-lg-6 (nested) -->
+									<div class="col-lg-4 col-md-4 col-xs-4">
+										<div class="form-group">
+											<label>Email ID</label>
+											<input class="form-control" placeholder="Please Enter Email ID" name="email" ng-model="vm.formData.email"
+											type="email"  ng-blur="email = commonService.checkElementLength(vm.formData,'email');" required ng-class="{myBlur:email}"
+											 readonly>
+										</div>
+										<div class="form-group">
+												<label>Phone Number</label>
+												<input class="form-control" placeholder="Please Enter Phone Number " name="phone" ng-model="vm.formData.phone"
+												type="text"  >
+											</div>
+											
+										<div class="form-group">
+												<label>Mobile Number</label>
+												<input class="form-control" placeholder="Please Enter mobile Number " name="mobile" ng-model="vm.formData.mobile" type="text"  >
+										</div>	
+										<div class="form-group">
+												<label>User Type</label>
+												<select class="form-control" ng-model="vm.formData.user_type" >
+													
+													<option value="buyer" ng-selected="vm.formData.user_type=='buyer'">Buyer</option>	
+													<option value="contributor" ng-selected="vm.formData.user_type=='contributor'"> Contributor</option>	
+												</select>
+										</div>	
+									</div>	
+							</div>
+									<!-- /.col-lg-6 (nested) -->								
+							</div>
+							<!-- /.row (nested) -->
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-xs-12" align="center">
+									<button type="submit" class="btn btn-primary" ng-disabled="siteMember.$invalid">Update User</button>
+									<!--<button type="button" class="btn btn-danger" ng-click="resetFormToAddUser()">Reset</button>-->
+								</div>
+							</div>
+				</form>
+						<!--form ended-->
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+      </div>
+	</div>
+
+	<image src="images/loading_spinner.gif" class="col-md-offset-5 loading" ng-if="dataLoading">	 
+
+</div>

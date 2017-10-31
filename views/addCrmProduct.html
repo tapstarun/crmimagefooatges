@@ -1,0 +1,150 @@
+<div class="container-fluid" ng-controller="AddCrmProductCtrl as vm">
+    <div class="row mtxl">
+        <div class="col-md-12 col-sm-12">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <strong>Add CRM Product</strong>
+                        </div>
+                        <div class="panel-body">
+                            <form role="form" name="crmProduct" method="post" ng-submit="addUpdateProduct()">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-xs-4">
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input class="form-control" placeholder="Please Enter Name" name="name" ng-model="vm.formData.name" type="text" ng-blur="name = commonService.checkElementLength(vm.formData,'name');" required ng-class="{myBlur:name}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Keywords</label>
+                                            <input class="form-control" placeholder="Please Enter Keywords" name="keywords" ng-model="vm.formData.keywords" type="text" ng-blur="keywords = commonService.checkElementLength(vm.formData,'keywords');" required ng-class="{myBlur:keywords}">
+                                        </div>
+                                    </div>
+                                    <!-- /.col-lg-6 (nested) -->
+                                    <div class="col-lg-4 col-md-4 col-xs-4">
+                                        <div class="form-group">
+                                            <label>Price</label>
+                                            <input class="form-control" placeholder="Please Enter Price" name="price" ng-model="vm.formData.price"
+                                                   type="text" ng-blur="price = commonService.checkElementLength(vm.formData,'price');" required ng-class="{myBlur:price}" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Image Size</label>
+                                            <input class="form-control" placeholder="Please Enter Image Size" name="img_sizes" ng-model="vm.formData.img_sizes"
+                                                   type="text" ng-blur="img_sizes = commonService.checkElementLength(vm.formData,'img_sizes');" " required ng-class=" {myblur:img_sizes}" />
+                                        </div>
+                                    </div>
+                                    <!-- /.col-lg-6 (nested) -->
+                                    <!-- /.col-lg-6 (nested) -->
+                                    <div class="col-lg-4 col-md-4 col-xs-4">
+                                        <div class="form-group">
+                                            <label>Product Type</label>
+                                            <input class="form-control" placeholder="Please Enter Product Type" name="product_type" ng-model="vm.formData.product_type"
+                                                   type="text" ng-blur="product_type = commonService.checkElementLength(vm.formData,'product_type');" required ng-class="{myBlur:product_type}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Video Type</label>
+                                            <input class="form-control" placeholder="Please Enter Video Type" name="video_type" ng-model="vm.formData.video_type"
+                                                   type="text" ng-blur="video_type = commonService.checkElementLength(vm.formData,'video_type');" required ng-class="{myBlur:vidoe_type}">
+                                        </div>
+                                    </div>
+                                    <!-- /.col-lg-6 (nested) -->
+                                </div>
+                                <!-- /.row (nested) -->
+
+
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-xs-4">
+                                        <div class="form-group">
+                                            <label>Product Image</label>
+                                           <!-- <input class="form-control" placeholder="Please Upload image" name="product_image" file-model="vm.formData.product_image" type="file" style="position:inherit;top:0;left:0;z-index:2;width:100%;height:100%;opacity:1;cursor:pointer;">->
+                                            <!--<input data-my-directive type="file" file-model="myFile" class="form-control" placeholder="Please Upload image" name="product_image" ng-model="vm.formData.product_image" ng-blur="product_image = commonService.checkElementLength(vm.formData,'product_image');" required ng-class="{myBlur:product_image}">
+                                            <button ng-click="uploadFile()">upload me</button>-->
+                                            <!--<file-upload name="product_image" ng-model="vm.formData.product_image"></file-upload>-->
+                                            <!--<input type="file" id="file" name="file" onchange="angular.element(this).scope().getFileDetails(this,0)">-->  
+                                            <input class="form-control" type="file" id="file" name="file" ng-model="vm.formData.product_image" style="position:inherit;top:0;left:0;z-index:2;width:100%;height:100%;opacity:1;cursor:pointer;" onchange="angular.element(this).scope().getFileDetails(this,0)">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>New Product</label>
+                                            <input class="form-control" placeholder="Please " name="new_product" ng-model="vm.formData.new_product" type="text" ng-blur="new_product = commonService.checkElementLength(vm.formData,'new_product');" required ng-class="{myBlur:new_product}">
+                                        </div>
+                                    </div>
+                                    <!-- /.col-lg-6 (nested) -->
+                                    <div class="col-lg-4 col-md-4 col-xs-4">
+                                        <div class="form-group">
+                                            <label>Featured Product</label>
+                                            <input class="form-control" placeholder="Please " name="featured_product" ng-model="vm.formData.featured_product" type="text" ng-blur="featured_product = commonService.checkElementLength(vm.formData,'featured_product');" required ng-class="{myBlur:featured_product}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Rating</label>
+                                            <input class="form-control" placeholder="Please Enter Rating" name="rating" ng-model="vm.formData.rating"
+                                                   type="text" ng-blur="rating = commonService.checkElementLength(vm.formData,'rating');" " required ng-class=" {myblur:rating}" />
+                                        </div>
+                                    </div>
+                                    <!-- /.col-lg-6 (nested) -->
+                                    <!-- /.col-lg-6 (nested) -->
+                                    <div class="col-lg-4 col-md-4 col-xs-4">
+                                        <div class="form-group">
+                                            <label>Active</label>
+                                            <input class="form-control" placeholder="Please Enter Status" name="active" ng-model="vm.formData.active"
+                                                   type="text" ng-blur="active = commonService.checkElementLength(vm.formData,'active');" required ng-class="{myBlur:active}">
+                                        </div>
+
+                                    </div>
+                                    <!-- /.col-lg-6 (nested) -->
+                                </div>
+                                <!-- /.row (nested) -->
+
+
+
+
+
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-xs-12" align="center">
+                                        <button type="submit" class="btn btn-primary" ng-disabled="crmProduct.$invalid || dataLoading">{{buttonText}}</button>
+                                        <button type="button" class="btn btn-danger" ng-click="resetFormToAddProduct()">Reset</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--form ended-->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+        </div>
+    </div>
+    <!--Modal HTML specific to Page-->
+    <div id='operationMessage' ng-if="!dataLoading">{{message}}</div>
+    <div class="row mtxl">
+        <modal-dialog show='modalShown' width="226px" height="124px">
+            <div class="row mtxl">
+                <div class="col-md-12 col-sm-12" align="center">
+                    Are you sure want to delete this User?
+                </div>
+            </div>
+            <div class="row mtxl">
+                <div class="col-md-12 col-sm-12" align="center">
+                    <button type="button" class="btn btn-primary" ng-click="deleteProduct()">Delete</button>
+                    <button type="button" class="btn btn-danger" ng-click="toggleModal()">Cancel</button>
+                </div>
+            </div>
+        </modal-dialog>
+    </div>
+    <!--Modal HTML specific to Page-->
+    <image src="images/loading_spinner.gif" class="col-md-offset-5 loading" ng-if="dataLoading">
+        <div class="row mtxl" ng-if="gridOptions.data!=null && gridOptions.data.length>0">
+            <div class="col-md-12 col-sm-12" align="right">
+                <button id='toggleFiltering' ng-click="commonService.toggleFiltering(scope)" class="btn btn-success">Filter</button>
+            </div>
+        </div>
+        <div class="row mtxl" ng-if="gridOptions.data!=null && gridOptions.data.length>0">
+            <div class="col-md-12 col-sm-12">
+                <div ui-grid-grouping ui-grid="gridOptions" class="panel panel-primary grid"></div>
+            </div>
+        </div>
+        <div class="row alert alert-info" ng-if="gridOptions && gridOptions.data.length==0" align="center">
+            No Data Found.
+        </div>
+</div>

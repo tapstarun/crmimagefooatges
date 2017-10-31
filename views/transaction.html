@@ -1,0 +1,48 @@
+<div class="container-fluid" ng-controller="TransacCtrl as vm">
+   <div class="row mtxl">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+         <strong>TRANSACTION TO BE VERIFIED-LAST 7 DAYS</strong>
+         <hr class="line-color">
+      </div>
+   </div>  
+   
+   <div  class="mtl">
+      <strong class="text-size">PURCHASE VIA</strong>
+        <span>
+            <button type="button" class="btn btn-danger btn-xs">Credits</button>
+        </span>
+   </div>
+   <div class="row-border">
+      <strong>No Transaction To Be verified</strong>
+   </div>
+   <div  class="mtl">
+      <strong class="text-size">PURCHASE VIA</strong>
+          <span>
+              <button type="button" class="btn btn-primary btn-xs">Subscription</button>
+          </span>
+   </div>
+   <div class="row-border">
+      <strong>No Transaction To Be verified</strong>
+   </div>
+   <div  class="mtl">
+      <strong class="text-size">PURCHASE VIA</strong>
+          <span>
+              <button type="button" class="btn btn-info btn-xs">Download Pack</button>
+          </span>
+   </div>
+   <div class="row-border">
+      <strong>No Transaction To Be verified</strong>
+   </div>
+    <div class="mtl text-size">TODAY'S TRANSACTION 
+       <span class="mls spcl-txt-color">(TRANSACTION  SHOWN ARE LIMITED TO YOUR TERRITORIES)
+       </span>
+       <hr class="line-color">
+    </div>
+  <image src="images/loading_spinner.gif" class="col-md-offset-5 loading" ng-if="vm.dataLoading">  
+  <div ng-if="vm.gridOptions && vm.gridOptions.data.length>0">
+    <ui-custom-grid options="vm.gridOptions" class="grid"></ui-custom-grid>
+  </div>
+  <div ng-if="vm.gridOptions && vm.gridOptions.data.length==0">
+      No Transactions details available.
+  </div>
+</div>
