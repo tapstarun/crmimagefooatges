@@ -1,0 +1,23 @@
+<div class="container-fluid" ng-controller="DailyTasksCtrl as vm">
+   <div class="row mtxl">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+         <strong>DAILY TASKS</strong>
+         <hr class="line-color">
+      </div>
+   </div>  
+   
+      <div class="mtl text-size">AUTO RENEWAL DISABLED ON JUNE 2, 2016. 
+      
+       <hr class="line-color">
+    </div>
+	<div>
+		<ui-custom-grid options="vm.firstOptions" class="grid"></ui-custom-grid>
+	</div>
+    <div class="mtl text-size">SUBSCRIPTION WILL BE EXPIRING 10 DAYS AFTER June 2, 2016.
+       
+       <hr class="line-color">
+    </div>
+	<div>
+		<ui-custom-grid options="vm.secondOptions" class="grid"></ui-custom-grid>
+	</div>
+</div>

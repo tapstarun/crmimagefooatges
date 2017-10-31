@@ -1,0 +1,101 @@
+<div class="container-fluid" ng-controller="OrderInvoiceCtrl as vm">
+	
+	<div class="container" ng-repeat="orderData in OrderOptions.data">
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="invoice-title">
+					<h2>Invoice Id-{{vm.formData.invoiceId}}</h2><h3 class="pull-right">Order # {{orderData.id}}	</h3>
+				</div>
+				<hr>
+				
+				<div class="row">
+					<div class="col-xs-6">
+						<address>
+						<strong>Billed To:</strong><br>
+								{{orderData.bill_address1}}			
+						</address>
+					</div>
+				
+				</div>
+				<div class="row">
+					<div class="col-xs-6">
+						<address>
+							<strong>Payment Method:</strong><br>
+							Visa ending **** 4242<br>
+							{{orderData.order_email}}
+						</address>
+					</div>
+					<div class="col-xs-6 text-right">
+						<address>
+							<strong>Order Date:</strong><br>
+								{{orderData.order_date}}
+						</address>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title"><strong>{{orderData.order_title}}</strong></h3>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-condensed">
+								<thead>
+									<tr>
+										<td><strong>Item</strong></td>
+										<td class="text-center"><strong>Product Type</strong></td>
+										<td class="text-center"><strong>Unit Price</strong></td>
+										
+										<td class="text-right"><strong>Amounts</strong></td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>{{orderData.order_title}}</td>
+										<td class="text-center">{{orderData.product_type}}</td>
+										<td class="text-center">{{orderData.order_total}}</td>
+										
+										<td class="text-right">{{orderData.order_total}}</td>
+									</tr>
+									
+									<tr>
+										<td class="thick-line"></td>
+										<td class="thick-line"></td>
+										<td class="thick-line text-center"><strong>Subtotal</strong></td>
+										<td class="thick-line text-right">{{orderData.subtotal}}</td>
+									</tr>
+								
+									<tr>
+										<td class="no-line"></td>
+										<td class="no-line"></td>
+										<td class="no-line text-center"><strong>Tax</strong></td>
+										<td class="no-line text-right">0.00</td>
+									</tr>
+
+									<tr>
+										<td class="no-line"></td>
+										<td class="no-line"></td>
+										<td class="no-line text-center"><strong>Discount</strong></td>
+										<td class="no-line text-right">0.00</td>
+									</tr>
+								
+									<tr>
+										<td class="no-line"></td>
+										<td class="no-line"></td>
+										<td class="no-line text-center"><strong>Total</strong></td>
+										<td class="no-line text-right">{{orderData.order_total}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

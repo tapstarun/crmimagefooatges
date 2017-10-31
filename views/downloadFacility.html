@@ -1,0 +1,71 @@
+<div class="container-fluid" ng-controller="DownloadFacilityCtrl as vm">
+	<div class="row mtxl">
+      <div class="col-md-12 col-sm-12">
+		 <div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<strong>Download On Behalf</strong>
+					</div>
+					<div class="panel-body">
+						<form role="form" method="post" ng-submit="transactionSearch()">
+							<div class="alert alert-info">
+								<strong>
+									This feature is for you to place image/footage/audio into client's dowload center.Their credit(s)/download pack/subscription count will be consumed accordingly.
+								</strong>
+							</div>	
+							<div class="row">
+									<div class="col-lg-4 col-md-4 col-xs-4">
+										<div class="form-group">
+											<label>UID</label>
+											<input type="text" class="form-control">
+										</div>
+									</div>
+									<!-- /.col-lg-6 (nested) -->
+									<div class="col-lg-4 col-md-4 col-xs-4">
+										<div class="form-group">
+											<label>1234 RFID#</label>
+											<input type="text" class="form-control">
+										</div>
+									</div>
+									<!-- /.col-lg-6 (nested) -->
+									<!-- /.col-lg-6 (nested) -->
+									<div class="col-lg-4 col-md-4 col-xs-4">
+										<div class="form-group">
+											<div class="radio">
+			                                    <label>
+			                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Today
+			                                    </label>
+			                                </div>
+										</div>
+									</div>
+									<!-- /.col-lg-6 (nested) -->								
+							</div>
+							<!-- /.row (nested) -->
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-xs-12" align="center">
+									<button type="submit" class="btn btn-danger">Search</button>
+									<button type="reset" class="btn btn-danger">Reset</button>
+								</div>
+							</div>
+						</form>
+						<!--form ended-->
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+      </div>
+	</div>
+	<image src="images/loading_spinner.gif" class="col-md-offset-5 loading" ng-if="dataLoading">	 
+	<div class="row mtxl" ng-if="gridOptions.data!=null && gridOptions.data.length>0">
+      <div class="col-md-12 col-sm-12">
+      	<div ui-grid-grouping ui-grid="gridOptions" class="grid panel panel-default"></div>
+	  </div>	
+	</div>
+	<div class="row alert alert-info" ng-if="gridOptions && gridOptions.data==null" align="center">
+	      No Data Found.
+	</div>
+</div>

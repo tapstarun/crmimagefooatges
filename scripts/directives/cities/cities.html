@@ -1,0 +1,4 @@
+<select class="form-control" name="city" ng-model="vm.formData.city">
+	<option value="">Select Cities</option>
+	<option ng-repeat="option in options" value="{{option.name}}" name="city" ng-model="vm.formData.city">{{option.name}}</option>
+</select>

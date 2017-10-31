@@ -1,0 +1,33 @@
+<div class="container-fluid" ng-controller="AbandondCartListCtrl as vm">
+	<div class="row mtxl">
+      <div class="col-md-3 col-sm-3 col-xs-3 text-size">
+         <strong>Abandond Cart List</strong>
+      </div>
+	  <div class="col-md-3 col-sm-3  col-xs-3">
+        {{rememnaing_items}} Item remaining
+      </div>
+	  <div class="col-md-3 col-sm-3 col-xs-3 form-group" ng-if="CountriesData">
+      <countries></countries>
+     </div>
+	 
+	  <div class="col-md-3 col-sm-3 col-xs-3 form-group">
+	  
+        <select class="form-control" ng-model="vm.formData.currentstatus" >
+          <option value="">All Statuses</option>
+			    <option value="pending">Pending</option>
+			    <option value="contact_again">Contact Again Later</option>
+        </select>     
+
+		
+      </div>
+	</div>
+  <image src="images/loading_spinner.gif" class="col-md-offset-5 loading" ng-if="dataLoading">   
+  <div class="row mtxl" ng-if="gridOptions.data!=null && gridOptions.data.length>0">
+      <div class="col-md-12 col-sm-12">
+        <div ui-grid-grouping ui-grid="gridOptions" ui-grid-edit class="grid panel panel-default"></div>
+    </div>  
+  </div>
+  <div class="row alert alert-info" ng-if="gridOptions && gridOptions.data==null && !dataLoading" align="center">
+        No Data Found.
+  </div>
+</div>

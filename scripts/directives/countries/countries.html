@@ -1,0 +1,5 @@
+<select class="form-control" ng-model="vm.formData.country">
+	<option value="">All Countries</option>
+	<option ng-repeat="option in options" value="{{option.name}}">{{option.name}}</option>
+</select>
+{{vm.formData.country}}

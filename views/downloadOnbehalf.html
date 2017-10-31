@@ -1,0 +1,206 @@
+<div class="container-fluid" ng-controller="DownloadOnbehalfCtrl as vm">
+	<div class="row mtxl">
+      <div class="col-md-12 col-sm-12">
+		 <div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<strong>Download On Behalf</strong>
+					</div>
+					<div class="panel-body">
+						<form role="form" method="post" ng-submit="productSearch()">
+							<div class="alert alert-info">
+								<strong>
+									This feature is for you to place image/footage/audio into client's dowload center.Their credit(s)/download pack/subscription count will be consumed accordingly.
+								</strong>
+							</div>	
+							<div class="row">
+									<div class="col-lg-4 col-md-4 col-xs-4">
+										<div class="form-group">
+											<label>UID</label>
+											<input type="text" class="form-control" ng-model="vm.formData.userId" required>
+										</div>
+									</div>
+									<!-- /.col-lg-6 (nested) -->
+																		<!-- /.col-lg-6 (nested) -->
+									<div class="col-lg-4 col-md-4 col-xs-4">
+										<div class="form-group">
+											<label>Product Id#</label>
+											<input type="text" class="form-control" ng-model="vm.formData.product_id" required>
+										</div>
+									</div>
+									<!-- /.col-lg-6 (nested) -->
+									
+								<!--	<div class="col-lg-4 col-md-6 col-xs-4">
+										<div class="form-group">
+											
+												<label>Type</label>
+												<input type="radio"  ng-model="product_type" ng-value="'rf'" name="product_type"  ng-checked="true">Royalty Free
+												<input type="radio" ng-model="product_type" ng-value="'rm'" name="product_type"  >Right Managed 
+											
+										</div> 
+									</div>
+								-->
+									
+									<!-- /.col-lg-6 (nested) -->
+									<!-- /.col-lg-6 (nested) -->
+									<!--<div class="col-lg-4 col-md-4 col-xs-4">
+										<div class="form-group">
+											<div class="radio">
+			                                    <label>
+			                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Today
+			                                    </label>
+			                                </div>
+										</div>
+									</div>-->
+									<!-- /.col-lg-6 (nested) -->								
+							</div>
+							<!-- /.row (nested) -->
+							<div class="row">
+								<div ng-if="product_type=='rf'">
+										
+								</div>	
+							</div>
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-xs-12" align="center">
+									<button type="submit" class="btn btn-danger">Search</button>
+									<button type="reset" class="btn btn-danger">Reset</button>
+								</div>
+							</div>
+						</form>
+						<!--form ended-->
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+      </div>
+	</div>
+
+	<image src="images/loading_spinner.gif" class="col-md-offset-5 loading" ng-if="dataLoading">	 
+	
+	<div class="row mtxl" ng-if="productOptions.data!=null && productOptions.data.length>0">
+	<form role="form" method="post" ng-submit="buyProductOnBehalf()">
+	<div class="col-md-12 col-sm-12">
+	 <!--ng-if="productOptions.data.type='royalty_free'"-->
+      
+			<div class="col-lg-4 col-md-4 col-xs-4">
+				<div class="form-group">
+					<label>UID</label>
+					<input type="text" class="form-control" ng-model="vm.formData.userId">
+				</div>
+			</div>	
+			<div class="col-lg-4 col-md-4 col-xs-4" ng-repeat="a in productOptions.data">
+				<div class="form-group">
+				 <label>Product Type</label>
+				 
+				<input type="text" class="form-control"   ng-model="vm.formData.product_type" readonly >		
+						
+				</div>	
+			
+			<div ng-switch="a.type">
+				<div ng-switch-default>	
+						<div class="form-group">
+						<label for="subscription">Product Type</label>
+					
+						<select ng-model="vm.formData.productSub" name="subscription" required>
+							<option value="">---Please select---</option>
+							<option value="sp" >Subscription Product</option>	
+							<option value="Wsp">Without Subscription Product</option>
+						</select> 
+						</div>		
+
+						<div class="form-group" ng-if="vm.formData.productSub=='sp'" >
+					
+						 <div ng-if="userOptions.data.length>0 || userOptions.data!=''">
+						 <label for="expiry">Choose User Plans</label>
+						
+					
+					
+								<!--<div class="col-lg-4 col-md-8 col-xs-4">-->
+										<div class="form-group">
+											 <div ng-repeat="(index,plans) in userOptions.data">
+												<h4>Plan Name-{{plans.plan_title}} </h4>
+												<input type="radio"  ng-model="vm.formData.planSelected" ng-value="plans.id" name="expiry"  ng-checked="true" required>MaximumImage Download-{{plans.maximage_download}} 
+											</div>
+											
+										</div> 
+								<!--</div>-->
+
+						 </div>
+							  <div ng-if="userOptions.data.length<1 || userOptions.data==''">
+							  <h3>User Don't have enough Plans</h3>
+							  </div>
+						 <div>
+						</div>	
+				</div>	
+					<div ng-switch-when="right_managed">
+							right manged
+						
+					</div>
+			</div>	
+			
+				<div class="form-group">
+				 <label for="sub_total">Product Size</label>
+				<select ng-model="vm.formData.productSize" required>
+				<option value="" selected>--Select a size--</option>
+				<option value="Small">Small</option>
+				<option value="Medium">Medium</option>
+				<option value="Large">Large</option>
+				<option value="X-Large">X-Large</option>
+				</select>
+
+			
+				</div>		
+
+				<div class="form-group">
+				 <label for="sub_total">Sub Total</label>
+			
+				<input type="text" class="form-control" ng-model="vm.formData.subTotal" name="sub_total" required >
+
+			
+				</div>	
+
+				<div class="form-group">
+				 <label for="promoCode">Promo code</label>
+			
+				<input type="text" class="form-control" ng-model="vm.formData.promoCode" name="promoCode" >
+
+			
+				</div>	
+
+				<div class="form-group">
+				 <label for="Total">Total</label>
+		
+				<input type="text" class="form-control" ng-model="vm.formData.Total" name="Total" value="{{vm.formData.subTotal}}">
+
+			
+				</div>
+				<div class="col-lg-4 col-md-6 col-xs-4">
+					<div class="form-group">
+						
+							<label for="expiry">Expiry Period</label>
+							<input type="radio"  ng-model="vm.formData.experyPeriod" ng-value="'7'" name="expiry"  ng-checked="true" required>7 Days
+							<input type="radio" ng-model="vm.formData.experyPeriod" ng-value="'30'" name="expiry"  required>30 Days 
+						
+					</div> 
+				</div>
+				<div class="col-lg-12 col-md-12 col-xs-12" align="right">
+					<button type="submit" class="btn btn-danger">Submit</button>
+			
+				</div>
+			
+			
+			</div>
+			
+		</div>
+	 
+	</div>
+	<form>
+	<div class="row alert alert-info" ng-if="productOptions && productOptions.data==null" align="center">
+	      No Data Found.
+	</div>
+</div>
+</div>
